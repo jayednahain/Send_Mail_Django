@@ -1,0 +1,24 @@
+
+{% extends 'base.html' %}
+
+{% block title %}
+
+{% endblock title %}
+
+
+
+
+{% block content %}
+
+    {{ dept }}
+    {% if filter_by_dept %}
+        {% for student in filter_by_dept %}
+            <p>{{ student.student_id }} ||<a href="{% url 'profile_view_with_class_link' student.pk %}">{{ student.name }}</a>||{{ student.student_department }} </p>
+        {% endfor %}
+    {% else %}
+        <h1>Unauthorize Access </h1>
+    {% endif %}
+
+
+
+{% endblock content %}

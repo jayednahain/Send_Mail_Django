@@ -1,0 +1,25 @@
+{% extends 'base.html' %}
+
+{% block title %}
+
+{% endblock title %}
+
+
+
+
+{% block content %}
+    <form action="{% url 'get_data_link' %}" method="post">
+        {% csrf_token %}
+        <label>Name:</label><input type="text" name="name"><br>
+        <label>ID:</label><input type="text" name="student_id"><br>
+        <button type="submit" class="btn btn-dark">Sumit</button>
+    </form>
+    <br>
+    <form action="{% url 'take_image_link' %}" method="post">
+        {% csrf_token %}
+        <button type="submit" class="btn btn-dark">take image</button>
+    </form>
+
+
+
+{% endblock content %}

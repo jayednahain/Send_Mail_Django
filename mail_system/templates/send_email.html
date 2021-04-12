@@ -1,0 +1,77 @@
+{% extends 'base.html' %}
+
+{% block title %}
+
+{% endblock title %}
+
+
+
+
+{% block content %}
+    <form method="post" action="{% url 'send_email_link' %}">
+    {% csrf_token %}
+        <br>
+        <table>
+            <tr>
+                <td>
+                    TO
+                </td>
+                <td>
+                    <input type="email" name="to_emaill">
+                </td>
+            </tr>
+            <br>
+            <br>
+            <tr>
+
+                <td>
+                    Subject
+                </td>
+                <td>
+                    <input type="text" name="subject" value="dajngo author" >
+                </td>
+            </tr>
+            <tr>
+                <td colspan="2">
+                    <br>
+                    <textarea name="content" cols="50" rows="10"></textarea>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <input type="submit" value="Send">
+                </td>
+                <td>
+                    <input type="reset" value="clear">
+                </td>
+
+            </tr>
+        </table>
+    </form>
+    <br>
+    <hr>
+    <br>
+    <br>
+    <form action="{% url 'save_mail_link' %}" method="post">
+        {% csrf_token %}
+        <label>     Send Address:</label><input type="email" class="form-control col-lg-4" name="sent_address" value="{{ send_address }}">
+        <label>          Subject:</label><input type="text" class="form-control col-lg-4" name="subject" value="{{ subject }}">
+
+        <label>     Mail Content:</label><br>
+        <textarea name="content">{{ text_content }}</textarea>
+        <br>
+
+        <input type="submit" value="submit">
+
+
+    </form>
+        <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+
+
+
+{% endblock content %}

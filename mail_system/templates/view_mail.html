@@ -1,0 +1,31 @@
+
+{% extends 'base.html' %}
+
+{% block title %}
+
+{% endblock title %}
+
+
+
+
+{% block content %}
+    <div class="container">
+
+
+        <div class="jumbotron">
+                <h1 class="display-4">{{ mailbox.subject }}</h1>
+                <hr class="my-4">
+                <p class="lead">{{ mailbox.content }}</p>
+                <hr class="my-4">
+                <p><strong>Date: </strong>{{ mailbox.mail_save_Date }}</p>
+
+                    <strong>Send Address:</strong>  <a class="btn btn-primary btn-lg" href="#" role="button">{{ mailbox.sent_address }}</a>
+
+        </div>
+
+
+
+    </div>
+
+
+{% endblock content %}

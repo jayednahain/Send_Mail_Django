@@ -1,0 +1,46 @@
+{% extends 'base.html' %}
+
+{% block title %}
+
+{% endblock title %}
+
+
+
+
+{% block content %}
+<ul>
+    <table class="table">
+      <thead>
+        <tr>
+            <th scope="col">Sent Address</th>
+            <th scope="col">Subject</th>
+            <th scope="col">Massage</th>
+            <th scope="col">Sent Date</th>
+            <th scope="col">Action</th>
+        </tr>
+      </thead>
+      <tbody>
+
+             {% for mail in object_list %}
+
+                <tr>
+                     <td>{{ mail.sent_address }}</td>
+                     <td>{{ mail.subject }}</td>
+                     <td>{{ mail.content }}</td>
+                     <td>{{ mail.mail_save_Date }}</td>
+                     <td>
+                        <a class="btn btn-dark" href="{% url 'view_single_mail_link' mail.id %}">View Mail</a>  <a href="{% url 'delete_mail_link' mail.id %}" class="btn btn-danger">Delete</a>
+                     </td>
+                 </tr>
+            {% endfor %}
+
+      </tbody>
+    </table>
+
+</ul>
+
+
+
+
+
+{% endblock content %}
